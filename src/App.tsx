@@ -24,7 +24,7 @@ function AppContent() {
 
   return (
     <div className="pb-20 md:pb-0 md:pl-20">
-      {activeTab === 'dashboard' && <Dashboard />}
+      {activeTab === 'dashboard' && <Dashboard setActiveTab={setActiveTab} />}
       {activeTab === 'chat' && <ChatRoom friendId={selectedFriendId} />}
       {activeTab === 'ai' && <AIChat />}
       {activeTab === 'profile' && <Profile />}

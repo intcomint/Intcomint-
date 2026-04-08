@@ -42,16 +42,22 @@ export function VideoCall({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-emerald-950 z-50 flex flex-col items-center justify-center">
+    <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center">
       <video ref={localVideoRef} autoPlay playsInline muted className="w-full h-full object-cover" />
-      <div className="absolute bottom-8 flex gap-6">
-        <motion.button whileTap={{ scale: 0.9 }} onClick={toggleMute} className={cn("p-4 rounded-full", isMuted ? "bg-red-600" : "bg-emerald-700")}>
+      
+      {/* Local Preview */}
+      <div className="absolute top-4 right-4 w-32 h-48 bg-emerald-900 rounded-lg overflow-hidden border-2 border-amber-400 shadow-lg">
+        <video ref={localVideoRef} autoPlay playsInline muted className="w-full h-full object-cover" />
+      </div>
+
+      <div className="absolute bottom-8 flex gap-6 bg-emerald-950/80 p-4 rounded-full backdrop-blur-sm border border-emerald-700">
+        <motion.button whileTap={{ scale: 0.9 }} onClick={toggleMute} className={cn("p-4 rounded-full transition-colors", isMuted ? "bg-red-600" : "bg-emerald-700 hover:bg-emerald-600")}>
           {isMuted ? <MicOff size={24} /> : <Mic size={24} />}
         </motion.button>
-        <motion.button whileTap={{ scale: 0.9 }} onClick={onClose} className="bg-red-600 p-4 rounded-full">
+        <motion.button whileTap={{ scale: 0.9 }} onClick={onClose} className="bg-red-600 p-4 rounded-full hover:bg-red-500 transition-colors">
           <PhoneOff size={24} />
         </motion.button>
-        <motion.button whileTap={{ scale: 0.9 }} onClick={toggleVideo} className={cn("p-4 rounded-full", isVideoOff ? "bg-red-600" : "bg-emerald-700")}>
+        <motion.button whileTap={{ scale: 0.9 }} onClick={toggleVideo} className={cn("p-4 rounded-full transition-colors", isVideoOff ? "bg-red-600" : "bg-emerald-700 hover:bg-emerald-600")}>
           {isVideoOff ? <VideoOff size={24} /> : <Video size={24} />}
         </motion.button>
       </div>
