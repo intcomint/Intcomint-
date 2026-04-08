@@ -1,0 +1,22 @@
+{
+  "entities": {
+    "EducationalEntity": {
+      "title": "EducationalEntity",
+      "description": "A knowledge guardian representing a subject area.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "subject": { "type": "string" },
+        "description": { "type": "string" },
+        "level": { "type": "string" }
+      },
+      "required": ["name", "subject", "description", "level"]
+    }
+  },
+  "firestore": {
+    "/educationalEntities/{entityId}": {
+      "schema": { "$ref": "EducationalEntity" },
+      "description": "Collection of knowledge guardians."
+    }
+  }
+}

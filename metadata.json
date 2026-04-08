@@ -1,0 +1,5 @@
+{
+  "name": "SciConnect",
+  "description": "An advanced educational hub for Saudi students, offering academic resources, AI-powered learning tools, and collaborative clubs from Kindergarten to University.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
